@@ -1,2 +1,2 @@
 # Sikka-Web
-Sikka frontend
+Sikka Frontend
