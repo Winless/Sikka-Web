@@ -1,0 +1,106 @@
+let AMATICB = getTokenAddress("AMATICB");//获取AMATICB地址
+let SIKKA = getTokenAddress("SIKKA");//获取SIKKA地址
+let SKUSD = getTokenAddress("SKUSD");//获取SKUSD地址
+
+let all2 = await getAllowance(SKUSD, "earn");//获取授权额度  参数2：是当前模块名（小写）
+
+approveToken(SKUSD, "earn", (code, hash) => {//授权  参数2：是当前模块名（小写）
+    trace("------approveToken-----", code, hash);
+});
+
+deposit("10", (code, hash) => {//存10个  usp
+    console.log(code, hash);
+});
+
+let bi = await getBorrowInfo();//borrow界面信息
+{
+    total: {
+      totalLoan: totalLoan,                     //总抵押
+      totalBorrow: totalBorrow,                 //总借出
+      loanRate: loanRate,                       //质押率
+      borrowRate: borrowRate,                   //借款利率
+      payBackRate: payBackRate,                 //补贴利率
+      liquidateRate: liquidateRate,             //清算率
+      interestRate: +interestRate * 86400 * 365,//年化
+    },
+    self: {
+      calculateInterest: calculateInterest,                      //个人利息
+      amountLoan,                                                //个人抵押
+      amountBorrow,                                              //个人借出
+      liquidationPrice: +amountBorrow > 0 ? liquidationPrice : 0,//清算价格
+    },
+    prices: prices
+}
+
+withdrawEarn("9", (code, hash) => {//取出
+    console.log(code, hash);
+});
+
+let ei = await getEarnInfo();
+interest: {
+      day: reward,       //日息
+      week: reward * 7,  //周息
+      month: reward * 30,//月息
+      year: reward * 365 //年息
+    },
+    withdrowAmount: withdrowAmount//体现金额
+}
+
+let apr = await getApr();//年华的表格数据  返回的是数组
+{
+    ts: item.ts,//时间
+    value: +value,//apy
+}
+
+let dc = await getDashboardChart();//Dashboard的表
+{
+    ts: item.ts,//时间
+    totalLoan: convertBigNumberToNormal(item.totalLoan),     //Total Collateral Value
+    totalBorrow: convertBigNumberToNormal(item.totalBorrow), //Total Borrow
+    totalDeposit: convertBigNumberToNormal(item.totalSupply), //Total Deposit
+    auspPrice: convertBigNumberToNormal(item.currentPrice)   //ausp 价格
+}
+
+let ta = await getTransferAction();//交易记录
+
+let di = await getDashboardInfo();//未登录得情况下得数据
+{
+    interestRate: +obj.interestRate * 8640 * 365,   //borrow apy年化
+    payBackRate: obj.payBackRate,                   //补贴利率
+    totalDeposit: totalDeposit,                     //Total Deposit   $美元 U
+    totalCollateralValue: +obj.totalLoan * +obj.AMATICBPrice, //Total Collateral  $美元 U
+    totalCollateral: +obj.totalLoan,                //Total Collateral    抵押的amaticb个数
+    yieldReserve: +obj.earnUspAmount - totalDeposit / +obj.USPPrice,//Yield Reserve   usp个数
+    SIKKAPrice: obj.SIKKAPrice,                     //SIKKA Price
+    totalBorrow: obj.totalBorrow,                   //total Borrow     usp个数
+    totalBorrowValue: +obj.totalBorrow * +obj.USPPrice,//total Borrow  $美元 U
+    depositAPY: +obj.rewardPerBlock * 8640 * 365,   //Deposit APY
+    aMATICbPrice: +obj.AMATICBPrice,                //aMATICb Price
+    USPPrice: +obj.USPPrice,                        //USP Price
+}
+
+let ai = await getAccountInfo()//account页面数据
+{
+    deposit: earn.withdrowAmount,        //Deposit      单位：usp个数
+    borrow: borrow.self.amountBorrow,    //Borrowing    单位：usp个数
+    USPAmount: balance[0].balance,       //USP Amount   单位：usp个数
+    sikkaPrice: +sikkaPrice / +uspPrice, //sikka Price  单位：usp个数
+    earnapy: earn.interest.year,         //earn apy     单位：需要乘以100%
+    totalCollateral: borrow.self.amountLoan,       //Total Collateral  单位：amaticb
+    totalCollateralUSP: +borrow.self.amountLoan * +amaticbPrice / +uspPrice, //Total Collateral  单位：usp
+    totalCollateralValue: +borrow.self.amountLoan * +amaticbPrice,           //Total Collateral Value  单位：美元$
+    netApy: borrow.total.interestRate * (1 - +borrow.total.payBackRate),     //netApy  单位：需要乘以100%
+    borrowLimit: (+borrow.self.amountLoan * +amaticbPrice * +borrow.total.borrowRate) / +uspPrice,//Borrow Limit  单位：usp
+    schedule: +borrow.self.amountBorrow / (+borrow.self.amountLoan * +amaticbPrice / +uspPrice),   //进度条  单位：需要乘以100%
+}
+
+let fp = await getFirstPageInfo();//Lending page页面信息
+{
+    userCount: dashboard.userCount,      //用户数
+    tvl: dashboard.totalDeposit + dashboard.totalCollateralValue, //tvl $
+    volume7d: (volume7 - volume0) * dashboard.USPPrice,           //7D vloume
+    depositAPY: dashboard.depositAPY,                             //apy
+    USPPrice: dashboard.USPPrice,                                 //usp价格
+}
+--------------------------------------------------
+web3model  源码修改     countto源码修改
