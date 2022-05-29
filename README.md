@@ -1,2 +1,2 @@
-# Sikka-Web
+# Sikka-Web-landingPage
 Sikka frontend
