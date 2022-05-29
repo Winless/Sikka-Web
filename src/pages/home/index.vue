@@ -3,17 +3,20 @@
     <div class="p1">
         <span class="p1-sp1">
             <img class="img1" src="@/assets/images/logo_text1.svg"/>
-           <!--手机端动图-->
-          <MovieClip v-if="modelM == 3" class="img2" :frames="frames2" :duration="8120" :width="stageWidth" :height="stageWidth"  :autoPlay="true" :loop="true"/>
-           <!--pc及平板动图-->
-          <MovieClip v-else-if="modelM==2" class="img2" style="margin-left: -6%;" :frames="frames" :duration="8120" :width="640" :height="640" :autoPlay="true" :loop="true"/>
-          <MovieClip v-else class="img2" :frames="frames" :duration="8120" :width="640" :height="640" :autoPlay="true" :loop="true"/>
+          <!--手机端动图-->
+          <MovieClip v-if="modelM == 3" class="img2" :frames="frames2" :duration="8120" :width="stageWidth"
+                     :height="stageWidth" :autoPlay="true" :loop="true"/>
+          <!--pc及平板动图-->
+          <MovieClip v-else-if="modelM==2" class="img2" style="margin-left: -6%;" :frames="frames" :duration="8120"
+                     :width="640" :height="640" :autoPlay="true" :loop="true"/>
+          <MovieClip v-else class="img2" :frames="frames" :duration="8120" :width="640" :height="640" :autoPlay="true"
+                     :loop="true"/>
         </span>
       <span class="p1-sp2">
         <div class="p1-sp2-1" v-if="modelM==1">
             <span class="t1 btnhover1" @click="openurl">For Integrators</span>
             <span class="t1 btnhover1" @click="openurl">Lite Paper</span>
-<!--            <span class="t1 btnhover1" @click="openurl">Socials</span>-->
+          <!--            <span class="t1 btnhover1" @click="openurl">Socials</span>-->
              <Pcdropdow></Pcdropdow>
             <span class="t2  btnhover2" @click="goApp">Web App</span>
         </div>
@@ -29,32 +32,38 @@
             <a-button class="btn" icon="close" @click="showNav=false"></a-button>
             <span class="t1 btnhover1" @click="openurl">For Integrators</span>
             <span class="t1 btnhover1" @click="openurl">Lite Paper</span>
-<!--            <span class="t1 btnhover1" @click="openurl">Socials</span>-->
-       <a-dropdown :trigger="['click']">
-            <a class="ant-dropdown-link" @click="e => e.preventDefault()">
-              <span class="t1 btnhover1">Socials <a-icon type="down" style="font-size: 0.8em" /></span>
-            </a>
-            <a-menu slot="overlay">
-              <a-menu-item key="0">
+           <a-collapse :bordered="false">
+          <a-collapse-panel :showArrow="false">
+            <template slot="header">
+            <span class="t1 btnhover1">Socials <a-icon type="down" style="font-size: 0.8em"/></span>
+            </template>
+            <div class="Socials-menu">
+              <div class="s1" @click="telegrm()">
+                <img src="@/assets/images/telegrm.svg"/>
+                <div>Telegram</div>
+              </div>
+              <div class="s1" @click="twitter()">
+                <img src="@/assets/images/twitter.svg"/>
+                <div>Twitter</div>
+              </div>
+              <div class="s1" @click="discord()">
+                <img src="@/assets/images/discord.svg"/>
+                <div>Discord</div>
+              </div>
 
-                <a href="https://www.google.com"><img src="@/assets/images/telegrm.svg"/>  Telegram</a>
-              </a-menu-item>
-              <a-menu-item key="1">
-                <a href="https://www.google.com"><img src="@/assets/images/twitter.svg"/>  Twitter</a>
-              </a-menu-item>
-              <a-menu-item key="3">
-                <a href="https://www.google.com"><img src="@/assets/images/discord.svg"/>  Discord</a>
-              </a-menu-item>
-            </a-menu>
-          </a-dropdown>
+            </div>
+
+          </a-collapse-panel>
+
+        </a-collapse>
             <span class="t2 btnhover2" @click="goApp">Web App</span>
           </div>
 
         </div>
       </span>
       <span class="p1-more" v-if="modelM!=1" @click="showNav=true">
-        <img v-if="modelM==2" src="@/assets/images/icon_more2.svg" />
-        <img v-else src="@/assets/images/icon_more.svg" />
+        <img v-if="modelM==2" src="@/assets/images/icon_more2.svg"/>
+        <img v-else src="@/assets/images/icon_more.svg"/>
       </span>
 
     </div>
@@ -82,7 +91,8 @@
       <img src="@/assets/images/p3_img1.svg"/>
       <div class="p3-sp1">
         <div class="t1">Enabling a reference rate <br>for the stablecoin market</div>
-        <div class="t2">Sikka provides the most equitable revenue<br> distribution system by rewarding liquidity<br> providers.
+        <div class="t2">Sikka provides the most equitable revenue<br> distribution system by rewarding liquidity<br>
+          providers.
         </div>
       </div>
       <div class="p3-sp2">{{ (totalInfo.depositAPY * 100).toFixed(2) }}%</div>
@@ -102,18 +112,18 @@
         <span>{{ totalInfo.USPPrice }} USD</span>
       </div>
       <div class="p4-sp5"><img src="@/assets/images/coins.svg"/></div>
-      <div class="p4-sp6">SIKKA is backed by over collateralizing MATIC or aMATICb
+      <div class="p4-sp6">SIKKA is backed by OVER collateralizing  MATIC
         to assure stability and easy of usage.
       </div>
     </div>
     <div class="p41">
       <div class="p41-sp1">Strategic Investor</div>
-      <div class="p41-sp2">
-        <img v-for="i in 7" :src="require('../../assets/images/investor_img'+i+'.svg')"/>
-      </div>
 <!--      <div class="p41-sp2">-->
-<!--        <img v-for="i in 2" :src="require('../../assets/images/aa'+i+'.svg')"/>-->
+<!--        <img v-for="i in 7" :src="require('../../assets/images/investor_img'+i+'.svg')"/>-->
 <!--      </div>-->
+            <div class="p41-sp2">
+              <img v-for="i in 2" :src="require('../../assets/images/logo'+i+'.svg')"/>
+            </div>
     </div>
     <div class="p5">
       <div class="p5-t1">FAQ</div>
@@ -141,13 +151,13 @@
             <span class="t3 btnhover1" @click="openurl">For Integrators</span>
             <span class="t4 btnhover1" @click="openurl">Lite Paper</span>
             <span class="t5">
-                <a href="https://www.google.com" target="_blank">
+                <a href="https://twitter.com/Sikkamoney" target="_blank">
                     <img src="@/assets/images/twitter.svg"/>
                 </a>
-                 <a href="https://www.google.com" target="_blank">
+                 <a href="https://t.me/sikkamoney" target="_blank">
                     <img src="@/assets/images/telegrm.svg"/>
                 </a>
-                 <a href="https://www.google.com" target="_blank">
+                 <a href="https://discord.com/invite/5q8MfzTQ" target="_blank">
                     <img src="@/assets/images/discord.svg"/>
                 </a>
             </span>
@@ -160,13 +170,13 @@
         <span class="t3 btnhover1" @click="openurl">For Integrators</span>
         <span class="t4 btnhover1" @click="openurl">Lite Paper</span>
         <span class="t5">
-            <a href="https://www.google.com" target="_blank">
+            <a href="https://twitter.com/Sikkamoney" target="_blank">
                 <img src="@/assets/images/twitter.svg"/>
             </a>
-             <a href="https://www.google.com" target="_blank">
+             <a href="https://t.me/sikkamoney" target="_blank">
                 <img src="@/assets/images/telegrm.svg"/>
             </a>
-             <a href="https://www.google.com" target="_blank">
+             <a href="https://discord.com/invite/5q8MfzTQ" target="_blank">
                 <img src="@/assets/images/discord.svg"/>
             </a>
         </span>
@@ -176,29 +186,35 @@
     </div>
 
     <div class="mobile-nav" v-if="showNav&&modelM==3">
-      <img src="@/assets/images/logo-text3.svg"/>
+      <img src="@/assets/images/logo-text3.svg" class="logonimg"/>
       <div class="con">
         <a-button class="btn" icon="close" @click="showNav=false"></a-button>
         <span class="t1 btnhover1" @click="openurl">For Integrators</span>
         <span class="t1 btnhover1" @click="openurl">Lite Paper</span>
-<!--        <span class="t1 btnhover1" @click="openurl">Socials</span>-->
-        <a-dropdown :trigger="['click']">
-          <a class="ant-dropdown-link" @click="e => e.preventDefault()">
-            <span class="t1 btnhover1">Socials <a-icon type="down" style="font-size: 0.8em" /></span>
-          </a>
-          <a-menu slot="overlay">
-            <a-menu-item key="0">
+        <!--        <span class="t1 btnhover1" @click="openurl">Socials</span>-->
+        <a-collapse :bordered="false">
+          <a-collapse-panel :showArrow="false">
+            <template slot="header">
+              <span class="t1 btnhover1">Socials <a-icon type="down" style="font-size: 0.8em"/></span>
+            </template>
+            <div class="Socials-menu">
+              <div class="s1" @click="telegrm()">
+                <img src="@/assets/images/telegrm.svg"/>
+                <div>Telegram</div>
+              </div>
+              <div class="s1" @click="twitter()">
+                <img src="@/assets/images/twitter.svg"/>
+                <div>Twitter</div>
+              </div>
+              <div class="s1" @click="discord()">
+                <img src="@/assets/images/discord.svg"/>
+                <div>Discord</div>
+              </div>
+            </div>
 
-              <a href="https://www.google.com"><img src="@/assets/images/telegrm.svg"/>  Telegram</a>
-            </a-menu-item>
-            <a-menu-item key="1">
-              <a href="https://www.google.com"><img src="@/assets/images/twitter.svg"/>  Twitter</a>
-            </a-menu-item>
-            <a-menu-item key="3">
-              <a href="https://www.google.com"><img src="@/assets/images/discord.svg"/>  Discord</a>
-            </a-menu-item>
-          </a-menu>
-        </a-dropdown>
+          </a-collapse-panel>
+
+        </a-collapse>
         <span class="t2 btnhover2" @click="goApp">Web App</span>
       </div>
 
@@ -238,7 +254,7 @@ export default {
     return {
       frames,
       frames2,
-      showNav:false,
+      showNav: false,
       stageWidth,
       toThousands2: toThousands2,
       modelM: 1,   //1 2 3
@@ -278,11 +294,21 @@ export default {
   computed: {},
   watch: {},
   methods: {
-    goApp() {
-      window.open("http://104.250.41.6:3021/")
+    telegrm(){
+      window.open("https://t.me/sikkamoney")
     },
-    openurl(){
-      window.open("https://www.google.com/")
+    twitter(){
+      window.open("https://twitter.com/Sikkamoney")
+    },
+    discord(){
+      window.open("https://discord.com/invite/5q8MfzTQ")
+
+    },
+    goApp() {
+      // window.open("http://104.250.41.6:3021/")
+    },
+    openurl() {
+      // window.open("https://www.google.com/")
     },
     async checkInfo() {
       let res = await getFirstPageInfo();
@@ -365,11 +391,12 @@ export default {
   -webkit-transform: translate3d(0, 0, 0);
 }
 
-.ant-dropdown-menu-item:hover,ant-dropdown-menu-submenu-title:hover{
+.ant-dropdown-menu-item:hover, ant-dropdown-menu-submenu-title:hover {
 
-  background-color:transparent;
+  background-color: transparent;
 
 }
+
 .ant-dropdown-menu-item > a, .ant-dropdown-menu-submenu-title > a {
   display: block;
   font-family: 'Inter';
@@ -382,12 +409,10 @@ export default {
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
+
 .cg-page {
   background: #eeeff1;
   position: relative;
-
-
-
 
 
   @media only screen and (min-width: 1181px) {
@@ -691,8 +716,8 @@ export default {
         text-align: center;
 
         img {
-          max-width: 154px;
-          width: 11%;
+          max-width: 360px;
+          width: 20%;
           margin: 0 12px;
         }
       }
@@ -806,14 +831,13 @@ export default {
   @media only screen and (max-width: 1180px) and (min-width: 620px) {
 
 
-
     .p1 {
       position: relative;
       display: flex;
       justify-content: center;
       align-items: stretch;
 
-      .p1-more{
+      .p1-more {
         position: absolute;
         top: 32px;
         right: 32px;
@@ -927,7 +951,6 @@ export default {
       padding: 80px 32px;
       width: 100%;
       overflow: hidden;
-
 
 
       .p1-sp1 {
@@ -1128,8 +1151,8 @@ export default {
         justify-content: center;
 
         img {
-          max-width: 154px;
-          width: 20%;
+          max-width: 360px;
+          width: 30%;
           margin: 24px 8px 0;
         }
       }
@@ -1246,7 +1269,7 @@ export default {
       justify-content: center;
       align-items: stretch;
 
-      .p1-more{
+      .p1-more {
         position: absolute;
         top: 20px;
         right: 20px;
@@ -1670,8 +1693,7 @@ export default {
   }
 
 
-
-  .mobile-nav{
+  .mobile-nav {
     position: absolute;
     background-color: black;
     padding: 24px;
@@ -1681,14 +1703,14 @@ export default {
     top: 0;
     z-index: 1;
 
-    img{
+    .logonimg {
       height: 24px;
       position: absolute;
       top: 20px;
       left: 20px;
     }
 
-    .con{
+    .con {
       display: flex;
       flex-direction: column;
       align-items: flex-end;
@@ -1699,14 +1721,51 @@ export default {
       line-height: 19px;
       text-align: right;
       color: rgba(255, 255, 255, 0.5);
-      .btn{
+
+      ::v-deep.ant-collapse-content > .ant-collapse-content-box {
+        padding: 0px;
+      }
+      ::v-deep.ant-collapse-borderless > .ant-collapse-item {
+       border-bottom: 1px solid transparent;
+      }
+
+      ::v-deep.ant-collapse > .ant-collapse-item {
+     border-bottom: 1px solid transparent;
+      }
+      ::v-deep .ant-collapse > .ant-collapse-item > .ant-collapse-header {
+        font-family: Agrandir;
+        font-weight: 400;
+        font-size: 19px;
+        line-height: 30px !important;
+        color: #000000 !important;
+        padding: 0 !important;
+      }
+      .Socials-menu{
+        display: flex;
+        justify-content: right;
+        flex-direction: column;
+        .s1{
+          cursor: pointer;
+         display: flex;
+          justify-content: flex-start;
+          margin: 10px 0px;
+
+          img{
+            margin-right: 11px;
+
+          }
+        }
+
+      }
+      .btn {
         background: transparent;
         border: 0;
         color: white;
         padding: 0 !important;
         width: 14px;
       }
-      .t1{
+
+      .t1 {
         font-family: Agrandir;
         font-weight: 400;
         font-size: 15px;
@@ -1718,10 +1777,12 @@ export default {
         margin-top: 28px;
         display: inline-block;
       }
-      .t1:first-child{
+
+      .t1:first-child {
         //margin-top: 50px;
       }
-      .t2{
+
+      .t2 {
         cursor: pointer;
         font-family: Agrandir;
         font-weight: 400;
@@ -1737,29 +1798,29 @@ export default {
     }
 
 
-
   }
 
-  .btnhover1{
+  .btnhover1 {
     padding-bottom: 2px;
     border-bottom: 1px solid rgba(255, 255, 255, 0);
     transition: .1s;
   }
-  .btnhover1:hover{
+
+  .btnhover1:hover {
     border-bottom: 1px solid white;
     color: white !important;
     cursor: pointer;
 
   }
 
-  @media only screen and (min-width: 1181px){
+  @media only screen and (min-width: 1181px) {
 
-    .p1-sp2-1{
-      .t1{
+    .p1-sp2-1 {
+      .t1 {
         display: inline-block;
       }
     }
-    .btnhover2{
+    .btnhover2 {
       width: 165px;
       display: inline-block;
       text-align: center;
@@ -1767,7 +1828,7 @@ export default {
       padding-right: 0 !important;
       transition: .1s;
     }
-    .btnhover2:hover{
+    .btnhover2:hover {
       font-size: 19px !important;
       //padding-top: 16px !important;
       //padding-bottom: 17px !important;
@@ -1775,13 +1836,13 @@ export default {
       //transform: translatey(-2px);
     }
   }
-  @media only screen and (max-width: 1180px) and (min-width: 620px){
-    p1-sp2-1{
-      .t1{
+  @media only screen and (max-width: 1180px) and (min-width: 620px) {
+    p1-sp2-1 {
+      .t1 {
         display: inline-block;
       }
     }
-    .btnhover2{
+    .btnhover2 {
       width: 165px;
       display: inline-block;
       text-align: center;
@@ -1789,7 +1850,7 @@ export default {
       padding-right: 0 !important;
       transition: .1s;
     }
-    .btnhover2:hover{
+    .btnhover2:hover {
       font-size: 19px !important;
       //padding-top: 16px !important;
       //padding-bottom: 17px !important;
@@ -1797,13 +1858,13 @@ export default {
       //transform: translatey(-2px);
     }
   }
-  @media only screen and (max-width: 619px){
-    p1-sp2-1{
-      .t1{
+  @media only screen and (max-width: 619px) {
+    p1-sp2-1 {
+      .t1 {
         display: inline-block;
       }
     }
-    .btnhover2{
+    .btnhover2 {
       width: 145px;
       display: inline-block;
       text-align: center;
@@ -1811,7 +1872,7 @@ export default {
       padding-right: 0 !important;
       transition: .1s;
     }
-    .btnhover2:hover{
+    .btnhover2:hover {
       font-size: 16px !important;
       //padding-top: 16px !important;
       //padding-bottom: 17px !important;

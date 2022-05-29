@@ -6,13 +6,13 @@
     <a-menu slot="overlay">
       <a-menu-item key="0">
 
-        <a href="https://www.google.com"><img src="@/assets/images/telegrm.svg"/>  Telegram</a>
+        <a href="https://t.me/sikkamoney"><img src="@/assets/images/telegrm.svg"/>  Telegram</a>
       </a-menu-item>
       <a-menu-item key="1">
-        <a href="https://www.google.com"><img src="@/assets/images/twitter.svg"/>  Twitter</a>
+        <a href="https://twitter.com/Sikkamoney"><img src="@/assets/images/twitter.svg"/>  Twitter</a>
       </a-menu-item>
       <a-menu-item key="3">
-        <a href="https://www.google.com"><img src="@/assets/images/discord.svg"/>  Discord</a>
+        <a href="https://discord.com/invite/5q8MfzTQ"><img src="@/assets/images/discord.svg"/>  Discord</a>
       </a-menu-item>
     </a-menu>
   </a-dropdown>
@@ -38,7 +38,7 @@ export default {
   padding: 18px 16px;
   text-align: left;
   list-style-type: none;
-  background-color: #FFFFFF1A;
+  background-color: #9256d8;
   background-clip: padding-box;
   border-radius: 16px;
   outline: none;
