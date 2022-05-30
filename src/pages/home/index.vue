@@ -14,24 +14,24 @@
         </span>
       <span class="p1-sp2">
         <div class="p1-sp2-1" v-if="modelM==1">
-            <span class="t1 btnhover1" @click="openurl">For Integrators</span>
-            <span class="t1 btnhover1" @click="openurl">Lite Paper</span>
+<!--            <span class="t1 btnhover1" @click="openurl">For Integrators</span>-->
+<!--            <span class="t1 btnhover1" @click="openurl">Lite Paper</span>-->
           <!--            <span class="t1 btnhover1" @click="openurl">Socials</span>-->
              <Pcdropdow></Pcdropdow>
-            <span class="t2  btnhover2" @click="goApp">Web App</span>
+<!--            <span class="t2  btnhover2" @click="goApp">Web App</span>-->
         </div>
         <div class="p1-sp2-2">
             <div class="p1-sp2-2-t1">Reliable yield with no impermanent loss</div>
             <div class="p1-sp2-2-t2">Lending Protocol for <br> US dollars stablecoin</div>
             <div class="p1-sp2-2-t3">
-                <span class="btnhover2" @click="goApp">Web App</span>
+<!--                <span class="btnhover2" @click="goApp">Web App</span>-->
             </div>
         </div>
         <div class="mobile-nav" v-if="showNav&&modelM==2" style="width: 50vw;">
           <div class="con">
             <a-button class="btn" icon="close" @click="showNav=false"></a-button>
-            <span class="t1 btnhover1" @click="openurl">For Integrators</span>
-            <span class="t1 btnhover1" @click="openurl">Lite Paper</span>
+<!--            <span class="t1 btnhover1" @click="openurl">For Integrators</span>-->
+<!--            <span class="t1 btnhover1" @click="openurl">Lite Paper</span>-->
            <a-collapse :bordered="false">
           <a-collapse-panel :showArrow="false">
             <template slot="header">
@@ -56,7 +56,7 @@
           </a-collapse-panel>
 
         </a-collapse>
-            <span class="t2 btnhover2" @click="goApp">Web App</span>
+<!--            <span class="t2 btnhover2" @click="goApp">Web App</span>-->
           </div>
 
         </div>
@@ -189,13 +189,13 @@
       <img src="@/assets/images/logo-text3.svg" class="logonimg"/>
       <div class="con">
         <a-button class="btn" icon="close" @click="showNav=false"></a-button>
-        <span class="t1 btnhover1" @click="openurl">For Integrators</span>
-        <span class="t1 btnhover1" @click="openurl">Lite Paper</span>
+<!--        <span class="t1 btnhover1" @click="openurl">For Integrators</span>-->
+<!--        <span class="t1 btnhover1" @click="openurl">Lite Paper</span>-->
         <!--        <span class="t1 btnhover1" @click="openurl">Socials</span>-->
-        <a-collapse :bordered="false">
-          <a-collapse-panel :showArrow="false">
+        <a-collapse v-model="activeKey" :bordered="false">
+          <a-collapse-panel :showArrow="false" key="1">
             <template slot="header">
-              <span class="t1 btnhover1">Socials <a-icon type="down" style="font-size: 0.8em"/></span>
+              <span class="t1 btnhover1">Socials</span>
             </template>
             <div class="Socials-menu">
               <div class="s1" @click="telegrm()">
@@ -215,7 +215,7 @@
           </a-collapse-panel>
 
         </a-collapse>
-        <span class="t2 btnhover2" @click="goApp">Web App</span>
+<!--        <span class="t2 btnhover2" @click="goApp">Web App</span>-->
       </div>
 
     </div>
@@ -252,6 +252,7 @@ export default {
 
     const stageWidth = window.innerWidth;
     return {
+      activeKey: ['1'],
       frames,
       frames2,
       showNav: false,
@@ -292,7 +293,11 @@ export default {
     };
   },
   computed: {},
-  watch: {},
+  watch: {
+    activeKey(key) {
+      console.log(key);
+    },
+  },
   methods: {
     telegrm(){
       window.open("https://t.me/sikkamoney")
@@ -449,9 +454,11 @@ export default {
         justify-content: space-between;
 
         .p1-sp2-1 {
+          justify-content: right;
           display: flex;
           align-items: center;
           margin-top: 1px;
+          margin-right: 106px;
         }
 
 
