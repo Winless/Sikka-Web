@@ -22,7 +22,7 @@
         </div>
         <div class="p1-sp2-2">
             <div class="p1-sp2-2-t1">Reliable yield with no impermanent loss</div>
-            <div class="p1-sp2-2-t2">Lending Protocol for <br> US dollars stablecoin</div>
+            <div class="p1-sp2-2-t2">USD Stablecoin <br>lending protocol</div>
             <div class="p1-sp2-2-t3">
 <!--                <span class="btnhover2" @click="goApp">Web App</span>-->
             </div>
@@ -69,19 +69,23 @@
     </div>
     <div class="p2">
       <div class="p2-sp1">
-        Sikka Protocol. The evolutionary USD Stablecoins backed by MATIC token.
+        Sikka Protocol. The next-generation USD Stablecoin backed by the MATIC token.
       </div>
       <div class="p2-sp2">
             <span class="p2-sp2-item">
-                <span class="t1">${{ toThousands2(totalInfo.tvl, 2) }}</span>
+<!--                <span class="t1">${{ toThousands2(totalInfo.tvl, 2) }}</span>-->
+                <span class="t1">$--</span>
                 <span class="t2">TVL</span>
             </span>
         <span class="p2-sp2-item">
-                <span class="t1">${{ toThousands2(totalInfo.volume7d, 2) }}</span>
+<!--                <span class="t1">${{ toThousands2(totalInfo.volume7d, 2) }}</span>-->
+                <span class="t1">$--</span>
                 <span class="t2">7 Days volume </span>
             </span>
         <span class="p2-sp2-item">
-                <span class="t1">{{ toThousands2(totalInfo.userCount), 0 }}</span>
+<!--                <span class="t1">{{ toThousands2(totalInfo.userCount), 0 }}</span>-->
+<!--                <span class="t1">{{ toThousands2(totalInfo.userCount), 0 }}</span>-->
+                <span class="t1">--</span>
                 <span class="t2">Active users</span>
             </span>
       </div>
@@ -95,7 +99,16 @@
           providers.
         </div>
       </div>
-      <div class="p3-sp2">{{ (totalInfo.depositAPY * 100).toFixed(2) }}%</div>
+
+<!--      <div class="p3-sp2">{{ (totalInfo.depositAPY * 100).toFixed(2) }}%</div>-->
+      <div style="display: flex;justify-content: center">
+        <div class="p3-sp2">
+          <div class="p3-sp3">up to</div>
+          <div class="p3-sp4">{{ (totalInfo.depositAPY * 100).toFixed(2) }}%</div>
+        </div>
+
+      </div>
+
 
     </div>
     <div class="p4">
@@ -117,12 +130,12 @@
       </div>
     </div>
     <div class="p41">
-      <div class="p41-sp1">Strategic Investor</div>
+      <div class="p41-sp1">Strategic Partners</div>
 <!--      <div class="p41-sp2">-->
 <!--        <img v-for="i in 7" :src="require('../../assets/images/investor_img'+i+'.svg')"/>-->
 <!--      </div>-->
             <div class="p41-sp2">
-              <img v-for="i in 2" :src="require('../../assets/images/logo'+i+'.svg')"/>
+              <img v-for="i in 2" :src="require('../../assets/images/logo'+i+'.svg')" @click="logosponsor(i)"/>
             </div>
     </div>
     <div class="p5">
@@ -145,11 +158,13 @@
             <span class="t1">
                 <img src="@/assets/images/logo-text3.svg"/>
             </span>
-            <span class="t2">© 2022 SIKKA.finance. All rights reserved | info@sikka.money</span>
+            <span class="t2">© 2022 SIKKA.money. All rights reserved | info@sikka.money</span>
         </span>
         <span class="p6-sp2">
-            <span class="t3 btnhover1" @click="openurl">For Integrators</span>
-            <span class="t4 btnhover1" @click="openurl">Lite Paper</span>
+<!--            <span class="t3 btnhover1" @click="openurl">For Integrators</span>-->
+<!--            <span class="t4 btnhover1" @click="openurl">Lite Paper</span>-->
+          <span  class="t3 btnhover1"></span>
+          <span class="t4 btnhover1"></span>
             <span class="t5">
                 <a href="https://twitter.com/Sikkamoney" target="_blank">
                     <img src="@/assets/images/twitter.svg"/>
@@ -167,8 +182,8 @@
         <span class="t1">
             <img src="@/assets/images/logo-text3.svg"/>
         </span>
-        <span class="t3 btnhover1" @click="openurl">For Integrators</span>
-        <span class="t4 btnhover1" @click="openurl">Lite Paper</span>
+<!--        <span class="t3 btnhover1" @click="openurl">For Integrators</span>-->
+<!--        <span class="t4 btnhover1" @click="openurl">Lite Paper</span>-->
         <span class="t5">
             <a href="https://twitter.com/Sikkamoney" target="_blank">
                 <img src="@/assets/images/twitter.svg"/>
@@ -180,7 +195,7 @@
                 <img src="@/assets/images/discord.svg"/>
             </a>
         </span>
-        <span class="t2">© 2022 SIKKA.finance.<br v-if="modelM==3"> All rights reserved | info@sikka.money</span>
+        <span class="t2">© 2022 SIKKA.money.<br v-if="modelM==3"> All rights reserved | info@sikka.money</span>
       </template>
 
     </div>
@@ -271,7 +286,7 @@ export default {
         },
         {
           title: "Where does the Sikka Yield Farming reward come from?",
-          content: "Sikka protocol partners w/ liquidity provider to provide a secure and reliable way to earn competitive APY. When users supply SIKK and other stablecoin pairs to the liquidity pool, they receive rewards from LP transaction fees and Sikka Revenue Pool. ",
+          content: "Sikka protocol partners w/ liquidity provider to provide a secure and reliable way to earn competitive APY. When users supply SIKKA and other stablecoin pairs to the liquidity pool, they receive rewards from LP transaction fees and Sikka Revenue Pool. ",
         },
         {
           title: "What is Sikka Revenue Pool? ",
@@ -306,8 +321,15 @@ export default {
       window.open("https://twitter.com/Sikkamoney")
     },
     discord(){
-      window.open("https://discord.com/invite/5q8MfzTQ")
+      window.open("https://discord.gg/E9Pz72UkK5")
+    },
+    logosponsor(i){
+      if(i==1){
+        window.open("https://polygon.technology/")
 
+      }else if(i==2){
+        window.open("https://www.ankr.com/")
+      }
     },
     goApp() {
       // window.open("http://104.250.41.6:3021/")
@@ -501,9 +523,9 @@ export default {
         width: 520px;
         font-family: Agrandir;
         font-style: normal;
-        font-weight: 400;
-        font-size: 40px;
-        line-height: 52px;
+        font-weight: 500;
+        font-size: 64px;
+        line-height: 83px;
         color: #FFFFFF;
         margin: 10px 0 40px;
       }
@@ -624,16 +646,32 @@ export default {
       }
 
       .p3-sp2 {
+        align-items: flex-start;
         text-align: center;
-
-        font-family: Agrandir;
-        font-weight: 400;
-        font-size: 320px;
-        line-height: 416px;
-        color: #000000;
-
+        flex-direction: column;
+        display: flex;
+        justify-content: flex-start;
         margin-bottom: -134px;
+
+        .p3-sp3{
+          font-family: 'Agrandir';
+          font-style: normal;
+          font-weight: 500;
+          font-size: 40px;
+          color: #000000;
+
+        }
+        .p3-sp4{
+          font-family: Agrandir;
+          font-weight: 400;
+          font-size: 320px;
+          line-height: 416px;
+          color: #000000;
+
+        }
       }
+
+
     }
 
     .p4 {
@@ -710,7 +748,7 @@ export default {
 
       .p41-sp1 {
         font-family: Agrandir;
-        font-weight: 400;
+        font-weight: 500;
         font-size: 40px;
         line-height: 52px;
         color: #000000;
@@ -723,6 +761,7 @@ export default {
         text-align: center;
 
         img {
+          cursor: pointer;
           max-width: 360px;
           width: 20%;
           margin: 0 12px;
@@ -924,9 +963,9 @@ export default {
       .p1-sp2-2-t2 {
         width: 317px;
         font-family: Agrandir;
-        font-weight: 400;
-        font-size: 27px;
-        line-height: 35px;
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 42px;
         color: #FFFFFF;
 
         margin: 8px 0 16px;
@@ -1052,14 +1091,39 @@ export default {
       }
 
       .p3-sp2 {
+        align-items: flex-start;
         text-align: center;
-
-        font-family: Agrandir;
-        font-weight: 400;
-        font-size: 180px;
-        line-height: 234px;
-        color: #000000;
+        flex-direction: column;
+        display: flex;
+        justify-content: flex-start;
         margin-bottom: -75px;
+
+        .p3-sp3{
+          font-family: 'Agrandir';
+          font-style: normal;
+          font-weight: 500;
+          font-size: 27px;
+          color: #000000;
+
+        }
+        .p3-sp4{
+
+          font-family: Agrandir;
+          font-weight: 400;
+          font-size: 180px;
+          line-height: 234px;
+          color: #000000;
+
+
+        }
+      }
+      .p3-sp3{
+        font-family: 'Agrandir';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 40px;
+        color: #000000;
+
       }
     }
     .p4 {
@@ -1143,7 +1207,7 @@ export default {
 
       .p41-sp1 {
         font-family: Agrandir;
-        font-weight: 400;
+        font-weight: 500;
         font-size: 27px;
         line-height: 35px;
         color: #000000;
@@ -1158,6 +1222,7 @@ export default {
         justify-content: center;
 
         img {
+          cursor: pointer;
           max-width: 360px;
           width: 30%;
           margin: 24px 8px 0;
@@ -1354,9 +1419,9 @@ export default {
 
       .p1-sp2-2-t2 {
         font-family: Agrandir;
-        font-weight: 400;
-        font-size: 24px;
-        line-height: 31px;
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 44px;
         color: #FFFFFF;
 
         margin: 8px 0 16px;
@@ -1484,17 +1549,41 @@ export default {
         line-height: 35px;
         color: #000000;
       }
-
       .p3-sp2 {
         margin-top: 20px;
+        align-items: flex-start;
         text-align: center;
-
-        font-family: Agrandir;
-        font-weight: 400;
-        font-size: 82px;
-        line-height: 107px;
-        color: #000000;
+        flex-direction: column;
+        display: flex;
+        justify-content: flex-start;
         margin-bottom: -36px;
+
+        .p3-sp3{
+          font-family: 'Agrandir';
+          font-style: normal;
+          font-weight: 500;
+          font-size: 24px;
+          color: #000000;
+
+        }
+        .p3-sp4{
+
+          font-family: Agrandir;
+          font-weight: 400;
+          font-size: 82px;
+          line-height: 107px;
+          color: #000000;
+
+
+        }
+      }
+      .p3-sp3{
+        font-family: 'Agrandir';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 40px;
+        color: #000000;
+
       }
     }
     .p4 {
@@ -1578,7 +1667,7 @@ export default {
 
       .p41-sp1 {
         font-family: Agrandir;
-        font-weight: 400;
+        font-weight: 500;
         font-size: 24px;
         line-height: 31px;
         color: #000000;
@@ -1594,6 +1683,7 @@ export default {
       }
 
       .p41-sp2 img {
+        cursor: pointer;
         width: calc(50vw - 26px);
         margin-top: 12px;
       }

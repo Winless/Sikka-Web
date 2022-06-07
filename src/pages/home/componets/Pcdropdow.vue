@@ -12,7 +12,7 @@
         <a href="https://twitter.com/Sikkamoney"><img src="@/assets/images/twitter.svg"/>  Twitter</a>
       </a-menu-item>
       <a-menu-item key="3">
-        <a href="https://discord.com/invite/5q8MfzTQ"><img src="@/assets/images/discord.svg"/>  Discord</a>
+        <a href="https://discord.gg/E9Pz72UkK5"><img src="@/assets/images/discord.svg"/>  Discord</a>
       </a-menu-item>
     </a-menu>
   </a-dropdown>
