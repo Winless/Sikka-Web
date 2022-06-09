@@ -60,7 +60,7 @@
             Disconnect
           </a-button>
 
-            
+
 
         </div>
       </div>
@@ -482,7 +482,7 @@ export default {
               width: 24px;
               background-image: url("../../assets/image/icon/copy.svg");
               background-repeat: no-repeat;
-              
+
 
             }
              .copy-img:hover{
@@ -490,7 +490,7 @@ export default {
               width: 24px;
               background-image: url("../../assets/image/icon/copy2.svg");
               background-repeat: no-repeat;
-            
+
 
              }
              .view-img{
@@ -516,16 +516,16 @@ export default {
             font-family: Inter;
             font-weight: 400;
             font-size: 13px;
-            color: #0333B0;
+            color: #561FB2;
                  .copy-img{
               height: 24px;
               width: 24px;
               background-image: url("../../assets/image/icon/copy2.svg");
               background-repeat: no-repeat;
-              
+
 
             }
-     
+
               .view-img{
               height: 24px;
               width: 24px;
@@ -533,9 +533,9 @@ export default {
               background-repeat: no-repeat;
 
              }
-  
+
           }
-   
+
         }
         .token {
           .token-flex2{
@@ -633,8 +633,8 @@ export default {
         }
                ::v-deep .ant-btn-primary:hover, .ant-btn-primary:focus {
                   color: #fff !important;
-                  background-color: #0333B0 !important;
-                  border-color: #0333B0 !important;
+                  background-color: #561FB2 !important;
+                  border-color: #561FB2 !important;
                 }
       }
     }

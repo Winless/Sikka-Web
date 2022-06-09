@@ -313,8 +313,13 @@ export default {
 
       // 第二种写法
       this.myChart = this.$echarts.init(document.getElementById("myChart"));
+     //获取到当前点击的数据
+     // this.myChart.on('click', function(params) {
+     //    // 控制台打印数据的名称
+     //    console.log("?????????????????",params);
+     //  });
 
-      // 绘制图表
+    // 绘制图表
       let aprs = await getApr();
        console.log("aprs",aprs)
       this.Interestchart.number = aprs[aprs.length - 1].value
@@ -333,12 +338,11 @@ export default {
       // }
       setTimeout(() => {
            this. myChart.setOption(option)
-          },
+          },100
       )
-     this.myChart=this.myChart((params) => {
-        this.Interestchart.number = Number(params.data)
-        this.Interestchart.date = params.name
-      })
+
+        // this.Interestchart.number = Number(this.myChart.data)
+        // this.Interestchart.date = this.myChart.name
 
     },
     dateFormat(ts) {

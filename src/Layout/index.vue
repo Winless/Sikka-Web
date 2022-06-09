@@ -22,7 +22,7 @@ export default {
   },
   data() {
     return {
-      
+
             windowWidth: document.documentElement.clientWidth,  //实时屏幕宽度
             windowHeight: document.documentElement.clientHeight,   //实时屏幕高度
 
@@ -72,7 +72,7 @@ export default {
   },
    mounted() {
      this.isonreisze()
-    this.ISwith()
+     this.ISwith()
     },
 
   created() {
